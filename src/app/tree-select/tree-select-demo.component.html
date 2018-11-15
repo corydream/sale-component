@@ -1,0 +1,85 @@
+<div style="width:100%">
+  <section class="markdown">
+    <h1>TreeSelect 树选择</h1>
+    <section class="markdown">
+      <p>树型选择控件。</p>
+      <p>样式大致和ant design的官方库一样，但是调用方式略有不同。</p>
+      <h2>
+        <span>何时使用</span>
+      </h2>
+      <p>类似 Select 的选择控件，可选择的数据结构是一个树形结构时，可以使用 TreeSelect，例如公司层级、学科系统、分类目录等等</p>
+      <p>支持拼音搜索，首字母搜索</p>
+      <h2>
+        维护人员
+      </h2>
+      <p>朱林峰&nbsp;&nbsp;&nbsp;zhulinfeng@banggood.com</p>
+    </section>
+    <h2>代码演示</h2>
+  </section>
+  <div nz-row [nzGutter]="8">
+
+    <div nz-col [nzSpan]="12">
+      <demo-code-box [antTitle]="'多选'" bgxId="demo1" [antCode]="treeSelectBaseCode">
+        <app-tree-select-demo1 demo></app-tree-select-demo1>
+        <div intro>
+          <p>支持模糊拼音搜索，展示框高度120px</p>
+        </div>
+      </demo-code-box>
+    </div>
+
+    <div nz-col [nzSpan]="12">
+      <demo-code-box [antTitle]="'单选'" bgxId="demo2" [antCode]="treeSelectSingleCode">
+        <app-tree-select-demo2 demo></app-tree-select-demo2>
+        <div intro>
+          <p>支持模糊拼音搜索</p>
+        </div>
+      </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="12" style="float: right">
+      <demo-code-box [antTitle]="'不带搜索功能的'" bgxId="demo3" [antCode]="treeSelectNoFilterCode">
+        <app-tree-select-demo3 demo></app-tree-select-demo3>
+        <div intro>
+          <p>单选，树选择框200px</p>
+        </div>
+      </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="12">
+      <demo-code-box [antTitle]="'三种大小'" bgxId="demo4" [antCode]="treeSelectSizeCode">
+        <app-tree-select-demo4 demo></app-tree-select-demo4>
+        <div intro>
+          <p>三种大小的选择框，当
+            <code>bgxSize</code> 分别为
+            <code>large</code> 和
+            <code>small</code> 时，输入框高度为
+            <code>40px</code> 和
+            <code>24px</code> ，默认高度为
+            <code>32px</code>
+          </p>
+        </div>
+      </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="12">
+        <demo-code-box [antTitle]="'只显示父节点'" bgxId="demo6" [antCode]="treeSelectShowParentCode">
+          <app-tree-select-demo6 demo></app-tree-select-demo6>
+          <div intro>
+            <p>设置
+              <code>bgxOnlyShowParent=true</code>，即所有子节点选中时显示父节点</p>
+          </div>
+        </demo-code-box>
+      </div>
+  </div>
+
+  <ant-markdown [antContent]="_markdownCode"></ant-markdown>
+
+
+  <nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+      <nz-link nzHref="#demo1" nzTitle="多选"></nz-link>
+      <nz-link nzHref="#demo2" nzTitle="单选"></nz-link>
+      <nz-link nzHref="#demo3" nzTitle="不带搜索功能的"></nz-link>
+      <nz-link nzHref="#demo4" nzTitle="三种大小"></nz-link>
+      <nz-link nzHref="#demo6" nzTitle="只显示父节点"></nz-link>
+    </nz-anchor>
+  </nz-affix>
+</div>
+<bgx-question></bgx-question>

@@ -1,0 +1,66 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+/ant-components
+# dependencies
+/node_modules
+# vscode
+/.vscode
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+npm-debug.*.log
+testem.log
+/typings
+/dist
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
+src/.idea/modules.xml
+src/.idea/src.iml
+src/.idea/workspace.xml
+src/app/.idea/app.iml
+src/app/.idea/modules.xml
+src/app/.idea/workspace.xml
+
+
+# 文档不需要提交，可以自动生成
+/book
+/_book
+
+release
+
+src/__temp_components
+/release
+
+
+get_doc.js
+lib

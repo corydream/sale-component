@@ -1,0 +1,33 @@
+<section class="markdown">
+    <h1>dropdown-search 下拉搜索按钮</h1>
+    <section class="markdown">
+        <p>保存常用的搜索条件</p>
+        <h2><span>何时使用</span>
+        </h2>
+        <p>需要持久化保存搜索条件时</p>
+        <h2>
+        维护人员
+        </h2>
+        <p>刘想&nbsp;&nbsp;&nbsp;liuxiang1@banggood.com</p>
+    </section>
+    <h2>代码演示</h2>
+</section>
+<div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="24">
+        <demo-code-box [antTitle]="'基本用法'" bgxId="base" [antCode]="DemoTypeDropdownBaseCode">
+            <app-dropdown-demo-base demo></app-dropdown-demo-base>
+            <div intro>
+                <p>基本调用</p>
+            </div>
+        </demo-code-box>
+    </div>
+  </div>
+<ant-markdown [antContent]="_markdownCode"></ant-markdown>
+
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+        <nz-link nzHref="#base" nzTitle="基本使用"></nz-link>
+    </nz-anchor>
+</nz-affix>
+
+<bgx-question></bgx-question>

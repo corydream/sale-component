@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="main-content">
+
+  <div #nav class="left" style="width:15%;">
+    <demo-side-nav>
+    </demo-side-nav>
+  </div>
+
+
+  <div class="right" style="width: 85%;">
+    <router-outlet>
+
+    </router-outlet>
+  </div>
+</div>
+<nz-back-top></nz-back-top>
+
+<button nz-button nzType="primary" title="反馈问题" (click)="feedback()" class="feecback_button">
+  <i class="anticon anticon-edit"></i>
+</button>

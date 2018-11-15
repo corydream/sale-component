@@ -1,0 +1,56 @@
+<h3>默认（选择框最大显示3个item，树选择排列4个项一列，显示框高度120px）</span></h3>
+<form novalidate>
+  <bgx-select-box name="multipleSelect" [bgxItems]="items" bgxId="id" bgxTextField="name" bgxChildrenField="children"
+    [(ngModel)]="multipleSelected" placeholder="请选择国家" required=true #multipleSelect="ngModel"
+    [bgxFilterPlaceholder]="bgxFilterPlaceholder" [bgxAllowFilter]="showFilter" [bgxDisabled]="disabled">
+  </bgx-select-box>
+  <div *ngIf="multipleSelect.errors && (multipleSelect.dirty || multipleSelect.touched)" class="alert alert-danger">
+    <div [hidden]="!multipleSelect.errors.required">Multiple select is required</div>
+  </div>
+</form>
+<div class="col-md-12">
+  <li *ngFor="let itm of multipleSelected">{{itm | json}}</li>
+</div>
+
+<h3>不带搜索功能的</h3>
+<form novalidate>
+  <bgx-select-box name="multipleSelect2" [bgxItems]="items" bgxId="id" bgxTextField="name" bgxChildrenField="children"
+    [(ngModel)]="multipleSelected2" placeholder="请选择国家" required=true #multipleSelect2="ngModel"
+    [bgxAllowFilter]="false" [bgxDisabled]="disabled">
+  </bgx-select-box>
+  <div *ngIf="multipleSelect2.errors && (multipleSelect2.dirty || multipleSelect2.touched)" class="alert alert-danger">
+    <div [hidden]="!multipleSelect2.errors.required">Multiple select is required</div>
+  </div>
+</form>
+<div class="col-md-12">
+  <li *ngFor="let itm of multipleSelected2">{{itm | json}}</li>
+</div>
+
+<h3>默认所有树选项展开</h3>
+<form novalidate>
+  <bgx-select-box name="multipleSelect3" [bgxItems]="items" bgxId="id" bgxTextField="name" bgxChildrenField="children"
+    [(ngModel)]="multipleSelected3" placeholder="请选择国家" required=true #multipleSelect3="ngModel"
+    [bgxFilterPlaceholder]="bgxFilterPlaceholder" [bgxAllowFilter]="showFilter" [bgxDisabled]="disabled" [bgxIsOpen]="bgxIsOpen">
+  </bgx-select-box>
+  <div *ngIf="multipleSelect3.errors && (multipleSelect3.dirty || multipleSelect3.touched)" class="alert alert-danger">
+    <div [hidden]="!multipleSelect3.errors.required">Multiple select is required</div>
+  </div>
+</form>
+<div class="col-md-12">
+  <li *ngFor="let itm of multipleSelected3">{{itm | json}}</li>
+</div>
+
+<h3>设置选择框显示个数，及树选择排列个数</h3>
+<form novalidate>
+  <bgx-select-box name="multipleSelect4" [bgxItems]="items" bgxId="id" bgxTextField="name" bgxChildrenField="children"
+    [(ngModel)]="multipleSelected4" placeholder="请选择国家" required=true #multipleSelect4="ngModel"
+    [bgxFilterPlaceholder]="bgxFilterPlaceholder" [bgxAllowFilter]="showFilter" [bgxSpan]="span" [bgxDisabled]="disabled"
+    [bgxMaxVisibleItemCount]="maxDisplayed">
+  </bgx-select-box>
+  <div *ngIf="multipleSelect4.errors && (multipleSelect4.dirty || multipleSelect4.touched)" class="alert alert-danger">
+    <div [hidden]="!multipleSelect4.errors.required">Multiple select is required</div>
+  </div>
+</form>
+<div class="col-md-12">
+  <li *ngFor="let itm of multipleSelected4">{{itm | json}}</li>
+</div>

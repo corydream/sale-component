@@ -1,0 +1,161 @@
+<article class="markdown">
+  <h1>更新日志
+    <span class="subtitle"></span>
+    <!-- <a class="edit-button" href="https://github.com/NG-ZORRO/ng-zorro-antd/edit/master/docs/changelog.zh-CN.md" target="_blank">
+		<i class="anticon anticon-edit"></i></a> -->
+  </h1>
+  <section class="markdown" ngNonBindable>
+    <p>
+      <code>bgx-legion</code> 严格遵循
+      <a href="http://semver.org/lang/zh-CN/" target="_blank">Semantic Versioning 2.0.0</a> 语义化版本规范。</p>
+    <h4 id="发布周期">
+      <span>发布周期</span>
+      <!-- <a onclick="window.location.hash = '发布周期'" class="anchor">#</a> -->
+    </h4>
+    <ul>
+      <li>修订版本号：每周会进行日常 bugfix 更新。（如果有紧急的 bugfix，则任何时候都可发布）</li>
+      <li>次版本号：每月发布一个带有新特性的向下兼容的版本。</li>
+      <li>主版本号：含有破坏性更新和新特性，不在发布周期内。</li>
+    </ul>
+    <hr>
+    <h2 id="0.3.9">
+        <span>0.3.9</span>
+        <!-- <a onclick="window.location.hash = '1-0-0'" class="anchor">#</a> -->
+    </h2>
+    <p>
+      <code>2018-08-22</code>
+    </p>
+    <h3>New</h3>
+    <ul>
+      <li>
+        <strong>search-area:</strong>
+        动态搜索区域，支持 <code>Input</code>、<code>Checkbox</code>、<code>DatePicker</code>、
+        <code>Select</code>、<code>TreeSelect</code>，自定义模板（TemplateRef），并支持拖拽排序和持久化用户搜索习惯，还可结合 <code>dropdown-search</code> 保存常用查询
+      </li>
+    </ul>
+    <h2 id="0.3.7">
+        <span>0.3.7</span>
+        <!-- <a onclick="window.location.hash = '1-0-0'" class="anchor">#</a> -->
+    </h2>
+    <p>
+      <code>2018-08-14</code>
+    </p>
+    <h3>Bug Fixes</h3>
+    <ul>
+      <li>
+        <strong>modal:</strong>
+        修复 <code>BgxModalService.create()</code> 报错问题
+      </li>
+    </ul>
+    <h2 id="0.3.2">
+      <span>0.3.2</span>
+      <!-- <a onclick="window.location.hash = '1-0-0'" class="anchor">#</a> -->
+    </h2>
+    <p>
+      <code>2018-08-13</code>
+    </p>
+    <h3>New</h3>
+    <ul>
+      <li>
+        <strong>dropdown-search:</strong>
+        持久化保存搜索条件
+      </li>
+    </ul>
+    <h3>Bug Fixes</h3>
+    <ul>
+      <li>
+        取消 CDK 依赖，使用 <code>ng-zorro</code> CDK
+      </li>
+      <li>
+        <strong>modal:</strong> 修复关闭窗口时，默认最大化失效的问题
+      </li>
+    </ul>
+    <h2 id="0.3.1">
+      <span>0.3.1</span>
+      <!-- <a onclick="window.location.hash = '1-0-0'" class="anchor">#</a> -->
+    </h2>
+    <p>
+      <code>2018-08-09</code>
+    </p>
+    <h3>Bug Fixes</h3>
+    <ul>
+      <li>
+        修改与 <code>ng-zorro</code> 组件冲突问题
+      </li>
+    </ul>
+    <h2 id="0.3.0">
+      <span>0.3.0</span>
+      <!-- <a onclick="window.location.hash = '1-0-0'" class="anchor">#</a> -->
+    </h2>
+    <p>
+      <code>2018-08-07</code>
+    </p>
+    <h3>New</h3>
+    <ul>
+      <li>
+        <strong>table:</strong>
+        移植于
+        <code>
+          <a href="http://ng.ant.design/components/table/zh" target="_blank">ng-zorro</a>
+        </code>，扩展表头
+        <code>nzDragThead</code> 可拖拽的功能；可自定义
+        <code>nzPageLeftContent</code> 分页器左侧内容；新增
+        <code>nzColumnConfig</code> 属性，用于可拖动的表头分组设置，此属性依赖于
+        <code>nzDragThead</code> 为
+        <code>true</code> 的情况
+      </li>
+    </ul>
+    <h2 id="0.2.18">
+      <span>0.2.18</span>
+      <!-- <a onclick="window.location.hash = '1-0-0'" class="anchor">#</a> -->
+    </h2>
+    <p>
+      <code>2018-08-02</code>
+    </p>
+    <h3>New</h3>
+    <ul>
+      <li>
+        <strong>upload:</strong>
+        移植于
+        <code>
+          <a href="http://ng.ant.design/components/upload/zh" target="_blank">ng-zorro</a>
+        </code>，增加文件尺寸，文件名，以及上传的模式的拓展
+      </li>
+    </ul>
+    <h3>Feature</h3>
+    <ul>
+      <li>
+        <strong>modal:</strong>
+        支持
+        <code>bgxDefaultMaximization</code> 默认最大化
+      </li>
+    </ul>
+    <h3>Bug Fixes</h3>
+    <ul>
+      <li>
+        <strong>select:</strong>
+        修改在
+        <code>bgxMode</code> 为
+        <code>multiple</code> 时基线默认居中</li>
+    </ul>
+    <h2 id="0.2.15">
+      <span>0.2.15</span>
+      <!-- <a onclick="window.location.hash = '1-0-0'" class="anchor">#</a> -->
+    </h2>
+    <p>
+      <code>2018-07-16</code>
+    </p>
+    <p>bgx-legion 组件发布</p>
+    <h3>现有组件</h3>
+    <ul>
+      <li>Select</li>
+      <li>SelectBox</li>
+      <li>TreeSelect</li>
+      <li>Editor</li>
+      <li>UEditor</li>
+      <li>Message</li>
+      <li>Modal</li>
+      <li>Viewer</li>
+    </ul>
+  </section>
+</article>

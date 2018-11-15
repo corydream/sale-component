@@ -1,0 +1,17 @@
+
+
+<h2 *ngIf="auth && list.length">反馈问题汇总</h2>
+<ul *ngIf="auth && list.length">
+    <ng-container *ngFor="let item of list">
+        <li class="ques-item">
+            <div class="ques-user">
+                <img [src]="item?.avatar" alt="">
+                <span>{{item?.userName}}</span>
+                <span class="time">{{item?.creatTime | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
+            </div>
+            <div class="ques-title">{{item?.title}}</div>
+            <div class="ques-description" [innerHTML]="item?.description"></div>
+        </li>
+    </ng-container>
+</ul>
+<nz-pagination [nzPageIndex]="pageIndex" [nzTotal]="total" [nzHideOnSinglePage]="true" (nzPageIndexChange)="pageIndexChange($event)"></nz-pagination>

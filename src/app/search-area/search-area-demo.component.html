@@ -1,0 +1,92 @@
+<section class="markdown">
+    <h1>SearchArea 搜索区域</h1>
+    <section class="markdown">
+      <p>基于OA业务场景，动态创建搜索区域</p>
+      <h2><span>何时使用</span></h2>
+      <p>需要用户处理事务，通过配置快速生成搜索区域，承载相应的操作。</p>
+      <p>搜索区域项过多时，可进行拖拽排序或筛选所需条件、持久化用户搜索习惯</p>
+      <h2>
+        维护人员
+      </h2>
+      <p>朱林峰&nbsp;&nbsp;&nbsp;zhulinfeng@banggood.com</p></section>
+    <h2>代码演示</h2>
+  </section>
+  <div nz-row [nzGutter]="8">
+
+    <div nz-col [nzSpan]="24">
+      <demo-code-box [antTitle]="'输入框'" bgxId="demo1" [antCode]="saTextboxCode">
+        <app-sa-demo-textbox demo></app-sa-demo-textbox>
+        <div intro>
+          <p>支持添加前置/后置标签、前缀图标</p>
+        </div>
+      </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="24">
+      <demo-code-box [antTitle]="'选择器'" bgxId="demo2" [antCode]="saSelectCode">
+        <app-sa-demo-select demo></app-sa-demo-select>
+        <div intro>
+          <p>支持选择搜索 <code>serverSearch</code> 为 <code>true</code> ，可根据 <code>onSearch</code> 回调请求异步接口获取数据设置列表项</p>
+          <p><code>type='nz'</code> 还支持 <code>scrollToBottom</code> 回调下拉列表滚动到底部进行动态加载数据</p>
+        </div>
+      </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="24">
+      <demo-code-box [antTitle]="'树选择'" bgxId="demo3" [antCode]="saTreeSelectCode">
+        <app-sa-demo-tree-select demo></app-sa-demo-tree-select>
+        <div intro>
+          <p>支持树选择及平铺树选择</p>
+          <p>可通过 <code>Observable</code> 处理异步请求数据， <code>next</code> 返回的数组对象</p>
+        </div>
+      </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="24">
+      <demo-code-box [antTitle]="'时间选择框'" bgxId="demo4" [antCode]="saDatePickerCode">
+        <app-sa-demo-date-picker demo></app-sa-demo-date-picker>
+        <div intro>
+          <p>支持日期选择框，日期范围选择框，星期选择框</p>
+        </div>
+      </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="24">
+      <demo-code-box [antTitle]="'多选框'" bgxId="demo5" [antCode]="saCheckboxCode">
+        <app-sa-demo-checkbox demo></app-sa-demo-checkbox>
+        <div intro>
+          <p>支持 Checkbox 组</p>
+        </div>
+      </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="24">
+      <demo-code-box [antTitle]="'自定义模板'" bgxId="demo6" [antCode]="saRenderCode">
+        <app-sa-demo-render demo></app-sa-demo-render>
+        <div intro>
+          <p>在基础控件不满足的情况下，开发者可自定义模板来处理业务场景</p>
+        </div>
+      </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="24">
+      <demo-code-box [antTitle]="'综合案例'" bgxId="demo7" [antCode]="saDefaultCode">
+        <app-sa-demo-default demo></app-sa-demo-default>
+        <div intro>
+          <p>结合 保存常用查询 功能进行综合使用</p>
+          <p>可设置每项的 <code>order</code> 进行排序展示</p>
+          <p>搜索区域超出宽度自动换行并隐藏，可点击更多按钮显示隐藏区域，可进行拖拽排序及筛选条件，持久化用户搜索习惯</p>
+          <p><code>bgxOnSearch</code> 返回搜索内容 <code>{{ '{ [key: string]: any｜any[]; }' }}</code></p>
+        </div>
+      </demo-code-box>
+    </div>
+  </div>
+
+  <ant-markdown [antContent]="_markdownCode"></ant-markdown>
+
+
+  <nz-affix class="toc-affix" [nzOffsetTop]="16">
+    <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+      <nz-link nzHref="#demo1" nzTitle="文本框"></nz-link>
+      <nz-link nzHref="#demo2" nzTitle="选择器"></nz-link>
+      <nz-link nzHref="#demo3" nzTitle="树选择"></nz-link>
+      <nz-link nzHref="#demo4" nzTitle="日期选择框"></nz-link>
+      <nz-link nzHref="#demo5" nzTitle="多选框"></nz-link>
+      <nz-link nzHref="#demo6" nzTitle="自定义模板"></nz-link>
+      <nz-link nzHref="#demo7" nzTitle="综合案例"></nz-link>
+    </nz-anchor>
+  </nz-affix>

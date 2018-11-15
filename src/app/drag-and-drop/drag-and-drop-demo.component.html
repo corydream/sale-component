@@ -1,0 +1,78 @@
+<section class="markdown">
+  <h1>Drop and Drop 拖拽拖放</h1>
+  <section class="markdown">
+    <p>拖拽拖放用于数据或文档复制、移动、排序等方式。</p>
+    <h2><span>何时使用</span></h2>
+    <p>标记了一个（或封装一组）操作命令，用户可对数据或文档进行拖拽移动、复制、排序等操作，触发相应的业务逻辑。</p>
+  </section>
+  <h2>代码演示</h2>
+</section>
+<div nz-row [nzGutter]="8">
+  <div nz-col [nzSpan]="12">
+    <demo-code-box [antTitle]="'基本用法'" [antCode]="dndSimpleCode">
+      <app-dnd-demo1 demo></app-dnd-demo1>
+      <div intro>
+        <p>简单的拖拽复制</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="12">
+    <demo-code-box [antTitle]="'处理用户数据'" [antCode]="dndCustomDataCode">
+      <app-dnd-demo3 demo></app-dnd-demo3>
+      <div intro>
+        <p>处理用户数据</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'限制拖拽空间'" [antCode]="dndZoneCode">
+      <app-dnd-demo2 demo></app-dnd-demo2>
+      <div intro>
+        <p>限制拖拽空间</p>
+      </div>
+    </demo-code-box>
+  </div>
+
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'使用自定义函数确定允许落下的位置'" [antCode]="dndCustomFuncCode">
+      <app-dnd-demo4 demo></app-dnd-demo4>
+      <div intro>
+        <p>使用自定义函数确定允许落下的位置</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'用于购物车'" [antCode]="dndShoppingCode">
+      <app-dnd-demo5 demo></app-dnd-demo5>
+      <div intro>
+        <p>用于购物车</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="12">
+    <demo-code-box [antTitle]="'简单的排序'" [antCode]="dndSortSimpleCode">
+      <app-dnd-demo6 demo></app-dnd-demo6>
+      <div intro>
+        <p>简单的排序</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="12">
+    <demo-code-box [antTitle]="'简单的排序加复制'" [antCode]="dndSortCopyCode">
+      <app-dnd-demo7 demo></app-dnd-demo7>
+      <div intro>
+        <p>简单的排序加复制</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'排序，拖拽移动'" [antCode]="dndMultiSortCode">
+      <app-dnd-demo8 demo></app-dnd-demo8>
+      <div intro>
+        <p>排序，拖拽移动</p>
+      </div>
+    </demo-code-box>
+  </div>
+</div>
+
+<ant-markdown [antContent]="_markdownCode"></ant-markdown>

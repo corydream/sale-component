@@ -1,0 +1,51 @@
+<section class="markdown">
+  <h1>UEditor 百度富文本编辑器</h1>
+  <section class="markdown">
+    <p>UEditor是由百度web前端研发部开发所见即所得富文本web编辑器，具有轻量，可定制，注重用户体验等特点，开源基于MIT协议，允许自由使用和修改代码</p>
+    <p>允许用户进行二次开发，根据自己的需求自定义按钮等功能</p>
+    <p>根据需求将UEditor编辑器移植为ng版本组件</p>
+    <h2>
+      维护人员
+    </h2>
+    <p>刘想&nbsp;&nbsp;&nbsp;liuxiang1@banggood.com</p>
+  </section>
+  <h2>代码演示</h2>
+</section>
+<div nz-row [nzGutter]="8" style="width: 90%">
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'基本使用'" bgxId="default" [antCode]="uEditorDefaultCode">
+      <app-ueditor-default demo></app-ueditor-default>
+      <div intro>
+        <p>完整示例</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'表单非空校验'" bgxId="form" [antCode]="uEditorFormCode">
+      <app-ueditor-form demo></app-ueditor-form>
+      <div intro>
+        <p>表单非空校验</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'自定义配置'" bgxId="config" [antCode]="uEditorConfigCode">
+      <app-ueditor-config demo></app-ueditor-config>
+      <div intro>
+        <p>根据需要，自定义配置toolbar</p>
+      </div>
+    </demo-code-box>
+  </div>
+</div>
+<div style="width:90%">
+  <ant-markdown [antContent]="_markdownCode"></ant-markdown>
+</div>
+
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+  <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+    <nz-link nzHref="#default" nzTitle="基本使用"></nz-link>
+    <nz-link nzHref="#form" nzTitle="表单非空校验"></nz-link>
+    <nz-link nzHref="#config" nzTitle="自定义配置"></nz-link>
+
+  </nz-anchor>
+</nz-affix>

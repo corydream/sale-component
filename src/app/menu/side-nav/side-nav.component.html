@@ -1,0 +1,25 @@
+<div nz-menu [nzMode]="'inline'">
+  <div *ngFor="let group of menuList">
+    <div [nzOpen]="true" nz-submenu *ngIf="group.children.length">
+      <span title>{{group.title}}</span>
+      <div *ngFor="let component of group.children">
+        <div *ngIf="component.children.length === 0" nz-menu-item routerLinkActive="ant-menu-item-selected">
+          <a routerLink="{{component?.route}}"> {{component.title}} </a>
+        </div>
+        <div *ngIf="component.children.length > 0" nz-submenu [nzOpen]="true">
+          <span title>{{component.title}}</span>
+          <div *ngFor="let item of component.children">
+            <div nz-menu-item routerLinkActive="ant-menu-item-selected">
+              <a routerLink="{{item.route}}"> {{item.title}} </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="group.children.length === 0" nz-menu-item routerLinkActive="ant-menu-item-selected">
+      <a routerLink="{{group?.route}}"> {{group.title}} </a>
+    </div>
+
+
+  </div>
+</div>

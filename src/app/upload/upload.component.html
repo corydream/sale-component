@@ -1,0 +1,88 @@
+<section class="markdown">
+    <h1>upload上传</h1>
+    <section class="markdown">
+        <p>文件选择上传和拖拽上传控件</p>
+        <h2>
+            <span>何时使用</span>
+        </h2>
+        <p>上传是将信息（网页、文字、图片、视频等）通过网页或者上传工具发布到远程服务器上的过程。</p>
+    </section>
+    <h2>代码演示</h2>
+</section>
+<div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="12">
+        <demo-code-box [antTitle]="'基本用法'" [antCode]="UplaodBaseCode" bgxId="base">
+            <bgx-upload-demo-base demo></bgx-upload-demo-base>
+            <div intro>
+                <p>基本调用</p>
+            </div>
+        </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="12" style="float: right;">
+        <demo-code-box [antTitle]="'用户头像'" [antCode]="UplaodAvatarCode" bgxId="avatar">
+            <bgx-upload-demo-avatar demo></bgx-upload-demo-avatar>
+            <div intro>
+                <p>点击上传用户头像，并限制用户上传的图片格式和数量</p>
+            </div>
+        </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="12">
+        <demo-code-box [antTitle]="'已上传文件列表'" [antCode]="UplaodFileListCode" bgxId="file-list">
+            <bgx-upload-demo-fileList demo></bgx-upload-demo-fileList>
+            <div intro>
+                <p>使用 bgxFileList 设置已上传的内容</p>
+            </div>
+        </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="12" style="float: right;">
+        <demo-code-box [antTitle]="'多文件上传'" [antCode]="UplaodMultipleCode" bgxId="multiple">
+            <bgx-upload-demo-multiple demo></bgx-upload-demo-multiple>
+            <div intro>
+                <p>多文件上传</p>
+            </div>
+        </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="12">
+        <demo-code-box [antTitle]="'拖拽上传'" [antCode]="UplaodDragCode" bgxId="drag">
+            <bgx-upload-demo-drag demo></bgx-upload-demo-drag>
+            <div intro>
+                <p>把文件拖入指定区域，完成上传，同样支持点击上传。 设置 bgxMultiple 后，在 IE10+ 可以一次上传多个文件。</p>
+            </div>
+        </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="12">
+        <demo-code-box [antTitle]="'手动上传'" [antCode]="UplaodManuallyCode" bgxId="manually">
+            <bgx-upload-demo-manually demo></bgx-upload-demo-manually>
+            <div intro>
+                <p>bgxBeforeUpload 返回 false 后，手动上传文件。</p>
+            </div>
+        </demo-code-box>
+    </div>
+    <div nz-col [nzSpan]="12">
+        <demo-code-box [antTitle]="'业务组件'" [antCode]="UplaodBusinessCode" bgxId="business">
+            <bgx-upload-demo-business demo></bgx-upload-demo-business>
+            <div intro>
+                <p>快速搭建上传功能。</p>
+            </div>
+        </demo-code-box>
+    </div>
+</div>
+<br>
+<br>
+<p>
+    <ant-markdown [antContent]="_markdownCode"></ant-markdown>
+
+
+    <nz-affix class="toc-affix" [nzOffsetTop]="16">
+        <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+            <nz-link nzHref="#base" nzTitle="基本使用"></nz-link>
+            <nz-link nzHref="#avatar" nzTitle="用户头像"></nz-link>
+            <nz-link nzHref="#file-list" nzTitle="已上传文件列表"></nz-link>
+            <nz-link nzHref="#multiple" nzTitle="多文件上传"></nz-link>
+            <nz-link nzHref="#drag" nzTitle="拖拽上传"></nz-link>
+            <nz-link nzHref="#manually" nzTitle="手动上传"></nz-link>
+            <nz-link nzHref="#business" nzTitle="业务组件"></nz-link>
+        </nz-anchor>
+    </nz-affix>
+
+    <bgx-question></bgx-question>

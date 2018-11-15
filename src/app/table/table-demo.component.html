@@ -1,0 +1,443 @@
+<section class="markdown">
+  <h1>Table 表格</h1>
+  <section class="markdown">
+    <p>展示行列数据</p>
+    <p>移植于NG-ZORRO，扩展功能：表头拖动、自定义页脚左侧内容</p>
+    <h2>
+      <span>何时使用</span>
+    </h2>
+    <p>当有大量结构化的数据需要展现时</p>
+    <p>当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时</p>
+    <h2>
+      <span>如何使用</span>
+    </h2>
+    <p>Table 组件同时具备了易用性和高度可定制性</p>
+    <h2>
+      维护人员
+    </h2>
+    <p>朱林峰&nbsp;&nbsp;&nbsp;zhulinfeng@banggood.com</p>
+    <h2>注意点</h2>
+    <p style="color:red">
+      由于NG-ZORRO中的
+      <code>table</code>将原生的标签
+      <code>thead</code>、
+      <code>th</code>、
+      <code>td</code>直接转换成组件使用， 所以在使用
+      <code>bgx-table</code>时，务必为
+      <code>thead</code>、
+      <code>th</code>、
+      <code>td</code>加
+      <code>className</code>以示区分，以避免冲突
+    </p>
+    <p> 注：NG-ZORRO于 <strong>1.1.1</strong> 版本解决此bug（提供跳过组件渲染的方式）</p>
+    <blockquote style="padding: 15px 10px 1px 10px;">
+        <ul>
+          <li>
+            <code class="lang-html">
+              <span class="token tag">
+                <span class="token tag">
+                  <span class="token punctuation">&lt;</span>thead <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">ant-table-thead nz-disable-thead</span><span class="token punctuation">"</span></span>
+                <span class="token punctuation">&gt;</span><span class="token punctuation">&lt;/</span>thead<span class="token punctuation">&gt;</span>
+              </span>
+            </code>
+          </li>
+          <li>
+            <code class="lang-html">
+              <span class="token tag">
+                <span class="token tag">
+                  <span class="token punctuation">&lt;</span>th <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">nz-disable-th</span><span class="token punctuation">"</span></span>
+                <span class="token punctuation">&gt;</span><span class="token punctuation">&lt;/</span>th<span class="token punctuation">&gt;</span>
+              </span>
+            </code>
+          </li>
+          <li>
+            <code class="lang-html">
+              <span class="token tag">
+                <span class="token tag">
+                  <span class="token punctuation">&lt;</span>td <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">nz-disable-td</span><span class="token punctuation">"</span></span>
+                <span class="token punctuation">&gt;</span><span class="token punctuation">&lt;/</span>td<span class="token punctuation">&gt;</span>
+              </span>
+            </code>
+          </li>
+        </ul>
+      </blockquote>
+    <p>
+      <a href="https://github.com/NG-ZORRO/ng-zorro-antd/issues/1917" target="_blank">为什么这么麻烦呢？</a>
+    </p>
+    <p>
+      <a href="https://github.com/NG-ZORRO/ng-zorro-antd/tree/master/components/table" target="_blank">参照源代码</a>
+    </p>
+    <h3>
+      <span>高度定制</span>
+    </h3>
+    <p>在
+      <code>bgx-table</code>组件中完整的暴露了
+      <code>
+        <a href="https://www.w3.org/TR/html401/struct/tables.html" target="_blank">W3C标准 &lt;table></a>
+      </code>的所有组成部分，你可以像使用
+      <code>table</code>元素一样使用
+      <code>bgx-table</code>，根据依据业务需求，使用者可以自由的控制任何一个部分的样式、内容、逻辑和事件绑定。</p>
+    <h3>数据处理</h3>
+    <p>传入
+      <code>[nzData]</code>中的数据，经过处理之后，可以通过
+      <a href="https://angular.io/guide/template-syntax#statement-context" target="_blank"> 模板变量 </a>获取当前展示表格部分的数据，再使用
+      <code>*ngFor</code>依据需求将数据渲染。</p>
+    <pre><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bgx-table</span> <span class="token attr-name">#basicTable</span> <span class="token attr-name">[nzData]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dataSet<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>thead <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">ant-table-thead nz-disable-thead</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">nz-disable-th</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">nz-disable-th</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Age<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">nz-disable-th</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">nz-disable-th</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Action<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>thead</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tbody</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name">*ngFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>let data of basicTable.data<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">nz-disable-td</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>｛｛data.name｝｝<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">nz-disable-td</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>｛｛data.age｝｝<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">nz-disable-td</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>｛｛data.address｝｝<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td <span class="token attr-name">class</span><span class="token punctuation">="</span><span class="token attr-value">nz-disable-td</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span><span class="token punctuation">&gt;</span></span>Action 一 ｛｛data.name｝｝<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nz-divider</span> <span class="token attr-name">nzType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>vertical<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nz-divider</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span><span class="token punctuation">&gt;</span></span>Delete<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tbody</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bgx-table</span><span class="token punctuation">&gt;</span></span>
+    </code></pre>
+  </section>
+
+  <h2>代码演示</h2>
+</section>
+<div nz-row>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'基础用法'" bgxId="demo1" [antCode]="demoTableBaseCode">
+      <app-table-demo-base demo></app-table-demo-base>
+      <div intro>
+        <p>简单的表格，最后一列是各种操作。</p>
+      </div>
+    </demo-code-box>
+  </div>
+
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'可选择'" bgxId="demo2" [antCode]="demoTableRowSelectionCode">
+      <app-table-demo-row-selection demo></app-table-demo-row-selection>
+      <div intro>
+        <p>
+          第一列是联动的选择框，增加
+          <code>nzShowCheckbox</code> 后，
+          <code>th</code> 获得和
+          <code>nz-checkbox</code> 一样的功能，请注意：数据逻辑需要自行控制。
+        </p>
+      </div>
+    </demo-code-box>
+  </div>
+
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'选择和操作'" bgxId="demo3" [antCode]="demoTableRowSelectionAndOperationCode">
+      <app-table-demo-row-selection-and-operation demo></app-table-demo-row-selection-and-operation>
+      <div intro>
+        <p>
+          选择后进行操作，完成后清空选择，请注意：数据逻辑需要自行控制。
+        </p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'自定义选择项'" bgxId="demo4" [antCode]="demoTableRowSelectionCustomCode">
+      <app-table-demo-row-selection-custom demo></app-table-demo-row-selection-custom>
+      <div intro>
+        <p>
+          通过
+          <code>nzShowRowSelection</code> 与
+          <code>nzSelections</code> 自定义选择项.
+        </p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'筛选和排序'" bgxId="demo5" [antCode]="demoTableHeadCode">
+      <app-table-demo-head demo></app-table-demo-head>
+      <div intro>
+        <p>
+          对某一列数据进行筛选，通过指定
+          <code>th</code> 的
+          <code>nzShowFilter</code> 属性来展示筛选菜单， 使用
+          <code>nzFilters</code> 属性来指定筛选选项，
+          <code>nzFilterChange</code> 用于获取当前选中的选项，
+          <code>nzFilterMultiple</code> 用于指定多选和单选。
+        </p>
+        <p>对某一列数据进行排序，通过指定
+          <code>th</code> 的
+          <code>nzShowSort</code> 属性来展示排序按钮，使用
+          <code>nzSortKey</code> 来指定排序的 key，在
+          <code>thead</code> 上通过
+          <code>nzSortChange</code> 来获取排序改变事件，通过
+          <code>nzSingleSort</code> 来指定是否单列排序。</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'可控的筛选和排序'" bgxId="demo6" [antCode]="demoTableResetFilterCode">
+      <app-table-demo-reset-filter demo></app-table-demo-reset-filter>
+      <div intro>
+        <p>
+          使用受控属性对筛选状态进行控制。
+        </p>
+        <blockquote>
+          <ol>
+            <li>在
+              <code>th</code> 中定义了
+              <code>nzSort</code> 属性即视为受控模式。</li>
+            <li>通过手动指定
+              <code>nzSort</code> 来指定当前列的排序状态</li>
+            <li>通过
+              <code>th</code> 的
+              <code>nzSortChange</code> 事件来获取当前列排序状态的改变</li>
+            <li>不可与
+              <code>thead</code> 中的
+              <code>nzSortChange</code> 或
+              <code>nzSingleSort</code> 同时使用</li>
+          </ol>
+        </blockquote>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'自定义筛选菜单'" bgxId="demo7" [antCode]="demoTableCustomFilterCode">
+      <app-table-demo-custom-filter-panel demo></app-table-demo-custom-filter-panel>
+      <div intro>
+        <p>通过
+          <code>nz-dropdown</code>、
+          <code>nzFilters</code> 和
+          <code>nzFilterChange</code> 定义自定义的列筛选功能，并实现一个搜索列的示例。</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'远程加载数据'" bgxId="demo8" [antCode]="demoTableAjaxCode">
+      <app-table-demo-ajax demo></app-table-demo-ajax>
+      <div intro>
+        <p>这个例子通过简单的 ajax 读取方式，演示了如何从服务端读取并展现数据，具有筛选、排序等功能以及页面 loading 效果。开发者可以自行接入其他数据处理方式。</p>
+        <p>
+          <strong>注意，此示例使用
+            <a href="https://randomuser.me">模拟接口</a>，展示数据可能不准确，请打开网络面板查看请求。</strong>
+        </p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'紧凑型'" bgxId="demo9" [antCode]="demoTableSizeCode">
+      <app-table-demo-size demo></app-table-demo-size>
+      <div intro>
+        <p>两种紧凑型的列表，小型列表只用于对话框内。</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'带边框'" bgxId="demo10" [antCode]="demoTableBorderedCode">
+      <app-table-demo-bordered demo></app-table-demo-bordered>
+      <div intro>
+        <p>添加表格边框线，页头和页脚。</p>
+      </div>
+    </demo-code-box>
+  </div>
+
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'可拖拽列表'" bgxId="demo11" [antCode]="demoTableDragCode">
+      <app-table-demo-drag demo></app-table-demo-drag>
+      <div intro>
+        <p>列宽可根据拖拽改变。</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'可展开'" bgxId="demo12" [antCode]="demoTableExpandCode">
+      <app-table-demo-expand demo></app-table-demo-expand>
+      <div intro>
+        <p>当表格内容较多不能一次性完全展示时，可以通过
+          <code>td</code> 上的
+          <code>nzExpand</code> 属性展开。</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'表格行/列合并'" bgxId="demo13" [antCode]="demoTableColspanRowSpanCode">
+      <app-table-demo-colspan-rowspan demo></app-table-demo-colspan-rowspan>
+      <div intro>
+        <p>像
+          <a href="https://www.w3.org/TR/html401/struct/tables.html">
+            <code>W3C标准 &lt;table&gt;</code>
+          </a> 一样，使用
+          <code>colspan</code> 和
+          <code>rowspan</code> 合并行/列。</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'树形数据展示'" bgxId="demo14" [antCode]="demoTableExpandChildrenCode">
+      <app-table-demo-expand-children demo></app-table-demo-expand-children>
+      <div intro>
+        <p>树形数据展示</p>
+        <p>表格支持树形数据的展示，可以通过设置
+          <code>nzIndentSize</code> 以控制每一层的缩进宽度，本例子中提供了树与数组之间的转换函数，实际业务中请根据需求修改。</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'固定表头'" bgxId="demo15" [antCode]="demoTableFixedHeaderCode">
+      <app-table-demo-fixed-header demo></app-table-demo-fixed-header>
+      <div intro>
+        <p>方便一页内展示大量数据。</p>
+        <p>需要指定
+          <code>th</code> 的
+          <code>nzWidth</code> 属性，否则列头和内容可能不对齐。</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'固定列'" bgxId="demo16" [antCode]="demoTableFixedColumnsCode">
+      <app-table-demo-fixed-columns demo></app-table-demo-fixed-columns>
+      <div intro>
+        <p>对于列数很多的数据，可以使用
+          <code>nzLeft</code> 和
+          <code>nzRight</code> 固定前后的列，横向滚动查看其它数据，需要和
+          <code>nzScroll.x</code> 配合使用。</p>
+        <blockquote>
+          <p>固定列使用了
+            <code>sticky</code> 属性，浏览器支持情况可以参考
+            <a href="https://caniuse.com/#feat=css-sticky">这里</a>。</p>
+          <p>若列头与内容不对齐或出现列重复，请指定
+            <code>th</code> 的宽度
+            <code>nzWidth</code>。</p>
+          <p>建议指定
+            <code>nzScroll.x</code> 为大于表格宽度的固定值或百分比。注意，且非固定列宽度之和不要超过
+            <code>nzScroll.x</code>。</p>
+        </blockquote>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'固定头和列'" bgxId="demo17" [antCode]="demoTableFixedColumnsHeaderCode">
+      <app-table-demo-fixed-columns-header demo></app-table-demo-fixed-columns-header>
+      <div intro>
+        <p>方便一页内展示大量数据。</p>
+        <blockquote>
+          <p>固定列使用了
+            <code>sticky</code> 属性，浏览器支持情况可以参考
+            <a href="https://caniuse.com/#feat=css-sticky">这里</a>。</p>
+          <p>若列头与内容不对齐或出现列重复，请指定列的宽度
+            <code>nzWidth</code>。</p>
+          <p>建议指定
+            <code>nzScroll.x</code> 为大于表格宽度的固定值或百分比。注意，且非固定列宽度之和不要超过
+            <code>nzScroll.x</code>。</p>
+        </blockquote>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'表头分组'" bgxId="demo18" [antCode]="demoTableGroupingColumnsCode">
+      <app-table-demo-grouping-columns demo></app-table-demo-grouping-columns>
+      <div intro>
+        <p>当使用分组表头时，
+          <code>th</code> 的
+          <code>nzWidth</code> 方式不再适用，使用
+          <code>nzWidthConfig</code> 来设定每个分组的宽度</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'表头分组并支持拖拽'" bgxId="demo19" [antCode]="demoTableGroupingColumnsAndDragCode">
+      <app-table-demo-grouping-columns-and-drag demo></app-table-demo-grouping-columns-and-drag>
+      <div intro>
+        <p>当使用分组表头时，
+          <code>th</code> 的
+          <code>nzWidth</code> 方式不再适用，使用
+          <code>nzColumnConfig</code> 来设定每个分组的唯一值及宽度</p>
+        <p>设置
+          <code>nzWidthConfig</code> 会被覆盖</p>
+        <blockquote>
+          <p>
+            <code>nzColumnConfig</code> 为数组对象</p>
+          <p>
+            <code>key</code> 分组的唯一值，必须与
+            <code>th</code> 的文本值保持一致</p>
+          <p>
+            <code>width</code> 分组宽度</p>
+        </blockquote>
+
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'可编辑单元格'" bgxId="demo20" [antCode]="demoTableEditCellCode">
+      <app-table-demo-edit-cell demo></app-table-demo-edit-cell>
+      <div intro>
+        <p>定制带单元格编辑功能的表格，自由操作单元格内容。</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'可编辑单元格'" bgxId="demo21" [antCode]="demoTableEditRowCode">
+      <app-table-demo-edit-row demo></app-table-demo-edit-row>
+      <div intro>
+        <p>定制带行编辑功能的表格，自由操作行内容。</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'嵌套子表格'" bgxId="demo22" [antCode]="demoTableNestedTableCode">
+      <app-table-demo-nested-table demo></app-table-demo-nested-table>
+      <div intro>
+        <p>展示每行数据更详细的信息。</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'自定义分页器左侧内容'" bgxId="demo23" [antCode]="demoTablePageLeftContentCode">
+      <app-table-demo-page-left-content demo></app-table-demo-page-left-content>
+      <div intro>
+        <p>根据业务需求，自定义分页器左侧的内容显示</p>
+      </div>
+    </demo-code-box>
+  </div>
+  <div nz-col [nzSpan]="24">
+    <demo-code-box [antTitle]="'动态控制表格属性'" bgxId="demo24" [antCode]="demoTableDynamicSettingsCode">
+      <app-table-demo-dynamic-settings demo></app-table-demo-dynamic-settings>
+      <div intro>
+        <p>选择不同配置组合查看效果。</p>
+      </div>
+    </demo-code-box>
+  </div>
+</div>
+
+<ant-markdown [antContent]="_markdownCode"></ant-markdown>
+<nz-affix class="toc-affix" [nzOffsetTop]="16">
+  <nz-anchor [nzAffix]="false" nzShowInkInFixed (nzClick)="goLink($event)">
+    <nz-link nzHref="#demo1" nzTitle="基本用法"></nz-link>
+    <nz-link nzHref="#demo2" nzTitle="可选择"></nz-link>
+    <nz-link nzHref="#demo3" nzTitle="选择和操作"></nz-link>
+    <nz-link nzHref="#demo4" nzTitle="自定义选择项"></nz-link>
+    <nz-link nzHref="#demo5" nzTitle="筛选和排序"></nz-link>
+    <nz-link nzHref="#demo6" nzTitle="可控的筛选和排序"></nz-link>
+    <nz-link nzHref="#demo7" nzTitle="自定义筛选菜单"></nz-link>
+    <nz-link nzHref="#demo8" nzTitle="远程加载数据"></nz-link>
+    <nz-link nzHref="#demo9" nzTitle="紧凑型"></nz-link>
+    <nz-link nzHref="#demo10" nzTitle="带边框"></nz-link>
+    <nz-link nzHref="#demo11" nzTitle="可拖拽列表"></nz-link>
+    <nz-link nzHref="#demo12" nzTitle="可展开"></nz-link>
+    <nz-link nzHref="#demo13" nzTitle="表格行/列合并"></nz-link>
+    <nz-link nzHref="#demo14" nzTitle="树形数据展示"></nz-link>
+    <nz-link nzHref="#demo15" nzTitle="固定表头"></nz-link>
+    <nz-link nzHref="#demo16" nzTitle="固定行"></nz-link>
+    <nz-link nzHref="#demo17" nzTitle="固定头和列"></nz-link>
+    <nz-link nzHref="#demo18" nzTitle="表头分组"></nz-link>
+    <nz-link nzHref="#demo19" nzTitle="可拖拽表头分组"></nz-link>
+    <nz-link nzHref="#demo20" nzTitle="可编辑单元格"></nz-link>
+    <nz-link nzHref="#demo21" nzTitle="可编辑行"></nz-link>
+    <nz-link nzHref="#demo22" nzTitle="嵌套子表格"></nz-link>
+    <nz-link nzHref="#demo23" nzTitle="自定义分页器左侧内容"></nz-link>
+    <nz-link nzHref="#demo24" nzTitle="动态控制表格属性"></nz-link>
+  </nz-anchor>
+</nz-affix>
+<bgx-question></bgx-question>
