@@ -1,4 +1,3 @@
-import { deepCopy } from '@delon/util';
 import { filter } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, HostListener } from '@angular/core';
@@ -226,7 +225,7 @@ export class SearchInputComponent implements OnInit, ControlValueAccessor {
       }
     });
     if (choosen.length == 0) {
-      choosen = deepCopy(this.selectedArray);
+      choosen = JSON.parse(JSON.stringify(this.selectedArray));
     }
     checkValues = this.filterSameCheckedItem([], choosen);
 

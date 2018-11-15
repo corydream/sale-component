@@ -12,7 +12,7 @@
     "generate": "bash build.sh",
     "book_serve": "gulp markdown:default",
     "pm2book": "pm2 start express_book.js --name sale-component-doc",
-    "build_release": "gulp release:default && bash build.sh",
+    "build_release": "gulp release:default && build.sh",
     "build_book": "gitbook build && pm2 start express_book.js --name sale-component-doc",
     "predist_serve": "ng build --prod",
     "dist_serve": "pm2 start express_dist.js --name sale-component",

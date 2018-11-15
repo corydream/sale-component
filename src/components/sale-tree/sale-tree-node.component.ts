@@ -8,11 +8,11 @@ import {
   TemplateRef, ViewChild
 } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
-import { InputBoolean } from '@shared/sale-tree/util/convert';
-import { SaleFormatBeforeDropEvent, SaleFormatEmitEvent } from '@shared/sale-tree/interface';
-import { SaleTreeNode } from '@shared/sale-tree/sale-tree-node';
-import { isCheckDisabled } from '@shared/sale-tree/sale-tree-util';
-import { SaleTreeService } from '@shared/sale-tree/sale-tree.service';
+import { InputBoolean } from './util/convert';
+import { SaleFormatBeforeDropEvent, SaleFormatEmitEvent } from './interface';
+import { SaleTreeNode } from './sale-tree-node';
+import { isCheckDisabled } from './sale-tree-util';
+import { SaleTreeService } from './sale-tree.service';
 
 @Component({
   selector           : 'sale-tree-node',

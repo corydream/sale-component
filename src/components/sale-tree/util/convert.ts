@@ -12,11 +12,6 @@ export function toCssPixel(value: number | string): string {
   return coerceCssPixelValue(value);
 }
 
-// Get the funciton-property type's value
-export function valueFunctionProp<T>(prop: FunctionProp<T>, ...args: any[]): T { // tslint:disable-line: no-any
-  return typeof prop === 'function' ? prop(...args) : prop;
-}
-
 /**
  * Input decorator that handle a prop to do get/set automatically with toBoolean
  *

@@ -9,11 +9,11 @@ import {
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { isNotNil } from '@shared/sale-tree/util/check';
-import { InputBoolean } from '@shared/sale-tree/util/convert';
-import { SaleFormatBeforeDropEvent, SaleFormatEmitEvent } from '@shared/sale-tree/interface';
-import { SaleTreeNode } from '@shared/sale-tree/sale-tree-node';
-import { SaleTreeService } from '@shared/sale-tree/sale-tree.service';
+import { isNotNil } from './util/check';
+import { InputBoolean } from './util/convert';
+import { SaleFormatBeforeDropEvent, SaleFormatEmitEvent } from './interface';
+import { SaleTreeNode } from './sale-tree-node';
+import { SaleTreeService } from './sale-tree.service';
 
 @Component({
   selector   : 'sale-tree',

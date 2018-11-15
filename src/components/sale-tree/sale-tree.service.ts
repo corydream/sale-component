@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { isNotNil } from './util/check';
-import { SaleFormatEmitEvent } from '@shared/sale-tree/interface';
-import { SaleTreeNode } from '@shared/sale-tree/sale-tree-node';
-import { isCheckDisabled, isInArray } from '@shared/sale-tree/sale-tree-util';
+import { SaleFormatEmitEvent } from './interface';
+import { SaleTreeNode } from './sale-tree-node';
+import { isCheckDisabled, isInArray } from './sale-tree-util';
 
 @Injectable()
 export class SaleTreeService {

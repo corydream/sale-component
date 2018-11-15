@@ -1,4 +1,4 @@
-import { SaleTreeNode } from '@shared/sale-tree/sale-tree-node';
+import { SaleTreeNode } from './sale-tree-node';
 
 export interface SaleFormatEmitEvent {
   eventName: string;
