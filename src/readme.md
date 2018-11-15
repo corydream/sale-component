@@ -1,9 +1,9 @@
 ---
-title: bgx-legion
+title: sale-component
 publishDate: 2018-08-16
 tags: 
   - test
 ---
 
-## bgx-legion
+## sale-component
 

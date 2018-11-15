@@ -14,7 +14,7 @@ SelectBox组件主要用于ERP中，用于平铺展示部门数据及选择。
 #### 如何引入 ####
 单独引入
 ``` typescript
-import { BgxSelectBoxModule } from 'bgx-legion'
+import { BgxSelectBoxModule } from 'sale-component'
 
 @NgModule({
     imports: [BgxSelectBoxModule],
@@ -39,7 +39,7 @@ export class DemoModule { }
 
 **代码演示**
 
-注意，演示文档是在bgx-legion项目中，所以引入模块不是`import { BgxSelectBoxModule } from 'bgx-legion'`，而是从本地引入
+注意，演示文档是在sale-component项目中，所以引入模块不是`import { BgxSelectBoxModule } from 'sale-component'`，而是从本地引入
 
 *** 新建你的模块，引入按钮组件 ***
 [import , lang:"typescript"](select-box-demo.module.ts)

@@ -1,4 +1,4 @@
-## bgx-legion的开发规范
+## sale-component的开发规范
 
 本规范适用范围为本UI组件库
 

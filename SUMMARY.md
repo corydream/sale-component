@@ -1,6 +1,6 @@
 # Summary
 
-* [bgx-legion介绍](README.md)
+* [sale-component介绍](README.md)
 * [开发规范](doc/code_specs.md)
 * [设计规范](doc/design_specs.md)
 * [开发环境以及工具](doc/tool.md)

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BgxLegionComponent } from './bgx-legion.component';
+import { BgxLegionComponent } from './sale-component.component';
 
 describe('BgxLegionComponent', () => {
   let component: BgxLegionComponent;

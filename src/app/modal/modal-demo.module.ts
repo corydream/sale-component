@@ -9,7 +9,7 @@ import { AntHighlightModule, AntCodeBoxModule, MarkdownModule } from '../share/'
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { BgxModalDemoComponent } from './modal-demo.component';
 import { BgxDemoModalBasicComponent } from './modal-demo-basic.component';
-// import { BgxLegionModule } from 'bgx-legion';
+// import { BgxLegionModule } from 'sale-component';
 import { BgxDemoModalAsyncComponent } from './modal-demo-async.component';
 import { BgxDemoModalConfirmComponent } from './modal-demo-confirm.component';
 import { BgxDemoModalConfirmPromiseComponent } from './modal-demo-confirm-promise.component';

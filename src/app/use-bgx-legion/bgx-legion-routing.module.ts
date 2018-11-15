@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { BgxLegionComponent } from './bgx-legion.component';
+import { BgxLegionComponent } from './sale-component.component';
 
 const routes: Routes = [
   {

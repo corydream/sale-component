@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bgx-legion": {
+    "sale-component": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -52,18 +52,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bgx-legion:build"
+            "browserTarget": "sale-component:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bgx-legion:build:production"
+              "browserTarget": "sale-component:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bgx-legion:build"
+            "browserTarget": "sale-component:build"
           }
         },
         "test": {
@@ -98,7 +98,7 @@
         }
       }
     },
-    "bgx-legion-e2e": {
+    "sale-component-e2e": {
       "root": "",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -107,7 +107,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "bgx-legion:serve"
+            "devServerTarget": "sale-component:serve"
           }
         },
         "lint": {
@@ -122,7 +122,7 @@
       }
     }
   },
-  "defaultProject": "bgx-legion",
+  "defaultProject": "sale-component",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

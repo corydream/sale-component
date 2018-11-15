@@ -4,7 +4,7 @@
 
 单独引入
 ``` typescript
-import { UEditorModule } from 'bgx-legion'
+import { UEditorModule } from 'sale-component'
 
 @NgModule({
     imports: [UEditorModule],
@@ -28,7 +28,7 @@ export class DemoModule { }
 ```
 #### 代码演示 ####
 
-注意，演示文档是在bgx-legion项目中，所以引入模块不是`import { UEditorModule } from 'bgx-legion'`，而是从本地引入
+注意，演示文档是在sale-component项目中，所以引入模块不是`import { UEditorModule } from 'sale-component'`，而是从本地引入
 
 *** 新建你的模块，引入按钮组件 ***
 [import , lang:"typescript"](ueditor-demo.module.ts)

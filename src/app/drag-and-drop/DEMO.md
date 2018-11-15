@@ -1,7 +1,7 @@
 #### 如何引入 ####
 单独引入
 ``` typescript
-import { DndModule } from 'bgx-legion'
+import { DndModule } from 'sale-component'
 
 @NgModule({
     imports: [DndModule],

@@ -1,6 +1,6 @@
 {
   "name": "sale-component",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -11,14 +11,14 @@
     "e2e": "ng e2e",
     "generate": "bash build.sh",
     "book_serve": "gulp markdown:default",
-    "pm2book": "pm2 start express_book.js --name bgx-legion-doc",
+    "pm2book": "pm2 start express_book.js --name sale-component-doc",
     "build_release": "gulp release:default && bash build.sh",
-    "build_book": "gitbook build && pm2 start express_book.js --name bgx-legion-doc",
+    "build_book": "gitbook build && pm2 start express_book.js --name sale-component-doc",
     "predist_serve": "ng build --prod",
-    "dist_serve": "pm2 start express_dist.js --name bgx-legion",
+    "dist_serve": "pm2 start express_dist.js --name sale-component",
     "postinstall": "node patch.js"
   },
-  "main": "./bundles/bgx-legion.umd.js",
+  "main": "./bundles/sale-component.umd.js",
   "module": "./esm5/index.js",
   "es2015": "./esm2015/index.js",
   "typings": "./index.d.ts",

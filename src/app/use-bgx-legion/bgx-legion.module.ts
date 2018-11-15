@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BgxLegionRoutingModule } from './bgx-legion-routing.module';
-import { BgxLegionComponent } from './bgx-legion.component';
+import { BgxLegionRoutingModule } from './sale-component-routing.module';
+import { BgxLegionComponent } from './sale-component.component';
 
 import { AntHighlightModule } from '../share/';
 import { MarkdownModule } from '../share/';

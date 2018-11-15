@@ -9,7 +9,7 @@
 
 #### 如何引入 ####
 ``` typescript
-import { BgxLegionModule } from 'bgx-legion';
+import { BgxLegionModule } from 'sale-component';
 @NgModule({
     imports: [BgxLegionModule],
     exports: [],

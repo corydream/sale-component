@@ -1,7 +1,7 @@
 
 ## 如何引入 
 ``` typescript
-	import { BgxLegionModule, BgxMessageService } from 'bgx-legion'
+	import { BgxLegionModule, BgxMessageService } from 'sale-component'
     @NgModule({
     	imports: [BgxLegionModule],
     	exports: [],

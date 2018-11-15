@@ -3,7 +3,7 @@
 **此组件需要用到ueditor的js和css，为方便了解更多关于ueditor的[配置](http://fex.baidu.com/ueditor/#start-config)和[API](http://ueditor.baidu.com/doc/)，可以上[官方](http://ueditor.baidu.com/website/index.html)进行了解与学习**
 
 ``` typescript
-import { BgxLegionModule } from 'bgx-legion'
+import { BgxLegionModule } from 'sale-component'
 
 @NgModule({
     imports: [

@@ -21,7 +21,7 @@ const routes: Routes = [
         path: 'use-ant', loadChildren: './use-ant/use-ant.module#UseAntModule'
       },
       {
-        path: 'use-bgx-legion', loadChildren: './use-bgx-legion/bgx-legion.module#BgxLegionModule'
+        path: 'use-sale-component', loadChildren: './use-sale-component/sale-component.module#BgxLegionModule'
       },
       {
         path: 'change-log', loadChildren: './change-log/change-log.module#ChangeLogModule'
