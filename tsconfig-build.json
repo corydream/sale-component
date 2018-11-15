@@ -13,13 +13,13 @@
         ]
     },
     "files": [
-        "./src/__temp_components/bgx-legion.module.ts"
+        "./src/__temp_components/sale-component.module.ts"
     ],
     "angularCompilerOptions": {
         "annotateForClosureCompiler": true,
         "strictMetadataEmit": true,
         "flatModuleOutFile": "index.js",
-        "flatModuleId": "bgx-legion",
+        "flatModuleId": "sale-component",
         "skipTemplateCodegen": true
     }
 }
