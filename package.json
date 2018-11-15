@@ -1,6 +1,6 @@
 {
   "name": "sale-component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -127,24 +127,6 @@
     "@angular/core": "^6.0.0",
     "@angular/forms": "^6.0.0"
   },
-  "description": "- 开发时候启动服务： `npm start`\r - 在服务端启动项目： `npm run dist_serve`\r - 启动本文档服务：`npm run book_serve`\r 注意：当修改文档的时候会自动的重新刷新和编译，如果你新建了md文档，最好重新跑一遍`npm run book_serve`，以便将新的文档添加到watch队列",
-  "bin": {
-    "sale-component": "book_pm2.js"
-  },
-  "directories": {
-    "doc": "doc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/corydream/sale-component.git"
-  },
-  "keywords": [
-    "a",
-    "sale",
-    "platform",
-    "public",
-    "component"
-  ],
   "author": "direct_x",
   "bugs": {
     "url": "https://github.com/corydream/sale-component/issues"
