@@ -30,3 +30,6 @@
 * [第三方插件移植](doc/third/index)
   * [layer](src/app/layer/readme.md)
   * [bg-echarts](src/app/bg-echarts/readme.md)
+
+
+* run  book_release  // 打包过程
