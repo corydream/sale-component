@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CinputComponent } from './cinput.component';
 import { FormsModule } from '@angular/forms';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { SaleTooltipComponent } from './sale-tooltip.component';
 
 @NgModule({
   imports: [
@@ -12,11 +12,11 @@ import { OverlayModule } from '@angular/cdk/overlay';
     NgZorroAntdModule
   ],
   declarations: [
-    CinputComponent,
+    SaleTooltipComponent,
 ],
   exports: [
-    CinputComponent,
+    SaleTooltipComponent,
     OverlayModule
   ]
 })
-export class CinputModule { }
+export class SaleTooltipModule { }

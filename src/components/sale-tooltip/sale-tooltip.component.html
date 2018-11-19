@@ -1,0 +1,24 @@
+<div class="cinput" [ngStyle]="{width: salewidth}">
+  <nz-input-group [nzAddOnAfter]="total + '项'">
+    <span  (click)="focus()">
+        <input type="text" nz-input [placeholder]="_placeholder" style="min-width:80px" readonly [value]="_inputValue"
+        #cinputInput>
+    </span>
+  </nz-input-group>
+
+  <ng-template #cinputCheckbox>
+    <div class="cinput-checkbox">
+      <div>
+        <div class="cinpput-header" style="border-bottom: 1px solid rgb(233, 233, 233); padding-bottom: 12px;font-size:12px;">
+          <label nz-checkbox [(ngModel)]="allChecked" [nzDisabled]="_disabled" (ngModelChange)="updateAllChecked()" [nzIndeterminate]="indeterminate"
+            style="font-weight: bold;">
+            {{_placeholder || '全部'}}
+          </label>
+          <button class="dropdown-clearAll" nz-button nzType="default" style="color:#5a8cff;border: 1px solid #5a8cff;float:right;" (click)="clearAll()">清除</button>
+        </div>
+        <br>
+      </div>
+      <nz-checkbox-group class="sale-group-input" [nzDisabled]="_disabled" [(ngModel)]="_options" (ngModelChange)="updateSingleChecked()"></nz-checkbox-group>
+    </div>
+  </ng-template>
+</div>

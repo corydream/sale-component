@@ -2,16 +2,16 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { SearchInputModule } from './searchInput/searchInput.module';
 import { SaleTreeModule } from './sale-tree/sale-tree.module';
-import { CinputModule } from './cinput/cinput.module';
+import { SaleTooltipModule } from './sale-tooltip/sale-tooltip.module';
 export  *  from './sale-tree';
 export  *  from './searchInput';
-export  *  from './cinput';
+export  *  from './sale-tooltip';
 
 @NgModule({
   exports: [
     SearchInputModule,
     SaleTreeModule,
-    CinputModule
+    SaleTooltipModule
   ]
 })
 export class SaleComponentModule {
