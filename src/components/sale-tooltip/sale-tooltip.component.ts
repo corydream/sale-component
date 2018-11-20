@@ -1,4 +1,8 @@
-import { Component, OnInit, Input, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, HostListener, Output, EventEmitter
+} from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { OverlayRef, Overlay } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
@@ -43,13 +47,12 @@ export class SaleTooltipComponent implements OnInit {
   @Input()
   set options(value: any) {
     this._options = value;
-    console.log(this._options);
   }
   @Input()
   set saleWidth(value: number) {
     this.salewidth = value + 'px';
   }
-
+  @Output() optionsChange = new EventEmitter<any>();
   /**
    * 是否模态框()
    */
@@ -113,13 +116,16 @@ export class SaleTooltipComponent implements OnInit {
   }
   updateModel() {
     let choose = [];
+    this._inputValue = '';
     choose = this._options.filter(item => item.checked);
     choose.map(v => {
-      this._inputValue = v.label + ',';
+      this._inputValue += v.label + ',';
     });
     this.total = choose.length;
+    this._inputValue = this._inputValue.substring(0, this._inputValue.length - 1);
     // view -> model
     this.choose = choose;
+    this.optionsChange.emit(choose);
     this.onChangeCallback(choose);
   }
 
