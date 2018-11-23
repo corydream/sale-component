@@ -1,6 +1,6 @@
 {
   "name": "sale-component",
-  "version": "0.0.4",
+  "version": "0.1.2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -15,8 +15,7 @@
     "build_release": "gulp release:default && build.sh",
     "build_book": "gitbook build && pm2 start express_book.js --name sale-component-doc",
     "predist_serve": "ng build --prod",
-    "dist_serve": "pm2 start express_dist.js --name sale-component",
-    "postinstall": "node patch.js"
+    "dist_serve": "pm2 start express_dist.js --name sale-component"
   },
   "main": "./bundles/sale-component.umd.js",
   "module": "./esm5/index.js",
