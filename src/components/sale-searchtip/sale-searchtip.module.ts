@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SearchInputComponent } from './searchInput.component';
+import { SaleSearchtipComponent } from './sale-searchtip.component';
 import { FormsModule } from '@angular/forms';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { OverlayModule } from '@angular/cdk/overlay';
@@ -13,12 +13,12 @@ import { ChineseToPinyinService } from './chineseToPinyin.service';
     NgZorroAntdModule
   ],
   declarations: [
-    SearchInputComponent
+    SaleSearchtipComponent
 ],
   exports: [
-    SearchInputComponent,
+    SaleSearchtipComponent,
     OverlayModule
   ],
   providers: [ChineseToPinyinService]
 })
-export class SearchInputModule { }
+export class SaleSearchtipModule { }

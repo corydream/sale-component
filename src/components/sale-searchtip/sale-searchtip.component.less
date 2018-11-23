@@ -1,37 +1,60 @@
 .cinput{
   display: table;
+  position: relative;
   &-input{
-    // width: 112px;
-    width: 80px;
+    font-size: 12px !important;
     cursor: pointer;
+    min-width: 80px;
   }
-
   &-checkbox{
-    min-width: 310px;
-    max-width: 500px;
-    min-height: 200px;
-    max-height: 600px;
+    min-width: 530px;
+    max-width: 530px;
+    min-height: 480px;
     overflow-y: auto;
     background: #fff;
     box-shadow: 0 0 10px #D1D1D1;
     border-radius: 4px;
     padding: 12px;
+    font-size: 12px !important;
+    .ant-checkbox-wrapper {
+      font-size: 12px !important;
+    }
   }
 }
-.cinpput-header {
-      position: relative;
- .dropdown-clearAll {
-       display: inline-block;
-    vertical-align: middle;
-    margin-top: 50%;
-    position: absolute;
-    top: 50%;
-    height: 34px;
-    margin-top: -22px;
-    right: 0px;
- }
+.search-pages{
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+}
+.search-input {
+   width: 75%;
+   margin-right: 10px;
+   float: left;
+}
+.input-layout{
+  border-bottom: 1px solid rgb(233, 233, 233); 
+  padding-bottom: 12px;
+  overflow: hidden;
+}
+.cinput-checkbox-item{
+  margin-top: 12px;
+}
+.clear-btn{
+  color:#5a8cff;
+  border: 1px solid #5a8cff;
+  float:right;
+  margin-right: 20px;
 }
 ::ng-deep{
+  .ant-input:focus, .ant-input:hover{
+    border-color: #5a8cff!important;
+  }
+  .ant-input:focus{
+    box-shadow: none;
+  }
+  .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-link-icon, .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-link-icon{
+    color: #5a8cff;
+  }
   .ant-input:focus, .ant-input:hover{
     border-color: #5a8cff;
   }
@@ -98,4 +121,5 @@
     border-color: #5a8cff;
   }
 }
+
 

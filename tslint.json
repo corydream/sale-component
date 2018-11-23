@@ -109,12 +109,12 @@
         ],
         "directive-selector": [
             true,
-            "attribute", ["app", "page", "bgc", "bst", "demo", "ant", "bui", "bg", "bgx"],
+            "attribute", ["app", "page", "bgc", "bst", "demo", "ant", "bui", "bg", "bgx", "sale"],
             "camelCase"
         ],
         "component-selector": [
             true,
-            "element", ["app", "page", "bgc", "bst", "demo", "ant", "bui", "bg", "bgx"],
+            "element", ["app", "page", "bgc", "bst", "demo", "ant", "bui", "bg", "bgx", "sale"],
             "kebab-case"
         ],
         "use-input-property-decorator": true,

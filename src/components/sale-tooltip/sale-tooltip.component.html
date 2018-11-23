@@ -1,7 +1,7 @@
 <div class="cinput" [ngStyle]="{width: salewidth}">
   <nz-input-group [nzAddOnAfter]="total + '项'">
     <span  (click)="focus()">
-        <input type="text" nz-input [placeholder]="_placeholder" style="min-width:80px" readonly [value]="_inputValue"
+        <input type="text" nz-input [placeholder]="_placeholder" style="min-width:80px;font-size:12px;" readonly [(ngModel)]="selectedArr"
         #cinputInput>
     </span>
   </nz-input-group>

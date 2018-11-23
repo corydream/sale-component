@@ -1,15 +1,15 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { SearchInputModule } from './searchInput/searchInput.module';
+import { SaleSearchtipModule } from './sale-searchtip/sale-searchtip.module';
 import { SaleTreeModule } from './sale-tree/sale-tree.module';
 import { SaleTooltipModule } from './sale-tooltip/sale-tooltip.module';
 export  *  from './sale-tree';
-export  *  from './searchInput';
+export  *  from './sale-searchtip';
 export  *  from './sale-tooltip';
 
 @NgModule({
   exports: [
-    SearchInputModule,
+    SaleSearchtipModule,
     SaleTreeModule,
     SaleTooltipModule
   ]

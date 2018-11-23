@@ -3,7 +3,7 @@ import {
   OnInit,
   Input, forwardRef, ViewChild, TemplateRef, ViewContainerRef, ElementRef, HostListener, Output, EventEmitter
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { OverlayRef, Overlay } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 
@@ -19,21 +19,27 @@ const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   styleUrls: ['./sale-tooltip.component.less'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
-export class SaleTooltipComponent implements OnInit {
+export class SaleTooltipComponent implements ControlValueAccessor, OnInit {
   @ViewChild('cinputInput') cinputInput: ElementRef<any>;
   @ViewChild('cinputCheckbox') cinputCheckbox: TemplateRef<any>;
+  @Output() optionsChange = new EventEmitter<any>();
   overlayRef: OverlayRef;
 
 
   public _placeholder = '请选择';
-  public _inputValue = '';
   public total = 0;
   allChecked = false;
   indeterminate = false;
   _disabled = false;
   _options = [];
   choose = [];
+  modal = false;
+  selectedArr = [];
   salewidth = '140px';
+  listArr: any = [];
+  async = true;
+  onChange: (value: string | string[]) => void = () => null;
+  onTouched: () => void = () => null;
   @Input()
   set placeholder(value: string) {
     this._placeholder = value;
@@ -45,23 +51,31 @@ export class SaleTooltipComponent implements OnInit {
   }
 
   @Input()
+  set isAsync(value: boolean) {
+    this.async = value;
+  }
+  @Input()
   set options(value: any) {
-    this._options = value;
+    if (value) {
+      this._options = value;
+      if (this.async) {
+        this.loadData();
+      }
+    }
+
   }
   @Input()
   set saleWidth(value: number) {
     this.salewidth = value + 'px';
   }
-  @Output() optionsChange = new EventEmitter<any>();
-  /**
-   * 是否模态框()
-   */
-  @Input() modal = false;
+
 
   @HostListener('document:click', ['$event'])
   onBodyClick(btn): void {
-    if (!this._elementRef.nativeElement.contains(btn.target)
-      && !this.overlayRef.overlayElement.contains(btn.target)
+    const path = btn.path || (btn.composedPath && btn.composedPath());
+    if (
+      !path.includes(this.overlayRef.overlayElement)
+      && !this._elementRef.nativeElement.contains(btn.target)
     ) {
       this.overlayRef.detach();
     }
@@ -91,7 +105,16 @@ export class SaleTooltipComponent implements OnInit {
       scrollStrategy: this.modal ? this.overlay.scrollStrategies.block() : null,
     });
   }
-
+  loadData() {
+    this._options.map(v => v.label = v.value);
+    const arr = this._options.filter(v => {
+      return this.listArr.includes(v.key);
+    });
+    arr.map(v => v.checked = true);
+    this.selectedArr = arr.map(v => v.value);
+    this.choose = arr;
+    this.total = this.listArr.length;
+  }
   updateAllChecked(): void {
     this.indeterminate = false;
     if (this.allChecked) {
@@ -116,17 +139,15 @@ export class SaleTooltipComponent implements OnInit {
   }
   updateModel() {
     let choose = [];
-    this._inputValue = '';
+    this.selectedArr = [];
     choose = this._options.filter(item => item.checked);
-    choose.map(v => {
-      this._inputValue += v.label + ',';
-    });
     this.total = choose.length;
-    this._inputValue = this._inputValue.substring(0, this._inputValue.length - 1);
     // view -> model
     this.choose = choose;
     this.optionsChange.emit(choose);
     this.onChangeCallback(choose);
+    this.selectedArr = this.choose.map(v => v.value);
+    this.onChange(this.choose);
   }
 
   onChangeCallback = (_: any) => { };
@@ -141,7 +162,7 @@ export class SaleTooltipComponent implements OnInit {
   }
 
   clearAll() {
-    if (this.choose.length > 0) {
+    if (this.choose.length > 0 && !this._disabled) {
       this.indeterminate = false;
       this.allChecked = false;
       this._options.forEach(item => item.checked = false);
@@ -149,4 +170,21 @@ export class SaleTooltipComponent implements OnInit {
     }
   }
 
+
+  writeValue(value: any | any[]): void {
+    if (value) {
+      this.listArr = value;
+      if (!this.async) {
+        this.loadData();
+      }
+    }
+  }
+
+  registerOnChange(fn: (value: string | string[]) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
 }
