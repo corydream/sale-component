@@ -20,7 +20,7 @@ export const PAGES_MENU = [
     parentId: 1,
     childId: null,
     id: 211,
-    route: '/use-sale-component',
+    route: '/use-bgx-legion',
     title: '快速上手',
     selected: false,
     expanded: false,

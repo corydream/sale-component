@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { FeedbackComponent } from './feedback.component';
 import { FeedbackService } from './feedback.service';
-import { BgxUEditorModule } from '../../components/ueditor/bgx-ueditor.module';
 
 @NgModule({
     imports: [
@@ -15,8 +14,7 @@ import { BgxUEditorModule } from '../../components/ueditor/bgx-ueditor.module';
         NgZorroAntdModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule,
-        BgxUEditorModule
+        HttpClientModule
     ],
     exports: [FeedbackComponent],
     declarations: [FeedbackComponent],
