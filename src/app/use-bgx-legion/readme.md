@@ -3,10 +3,10 @@
 
 ## 如何引入 ##
 ``` typescript
-import { BgxLegionModule } from 'sale-component'
+import { SaleComponentModule } from 'sale-component'
 
 @NgModule({
-    imports: [BgxLegionModule],
+    imports: [SaleComponentModule],
     exports: [],
     declarations: [],
     providers: [],
