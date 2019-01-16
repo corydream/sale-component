@@ -7,13 +7,21 @@
   </nz-input-group>
 
   <ng-template #cinputCheckbox>
-    <div class="cinput-checkbox">
+    <div class="cinput-checkbox" [ngClass]="{'cinput-width': _isChoose}">
       <div>
         <div class="cinpput-header" style="border-bottom: 1px solid rgb(233, 233, 233); padding-bottom: 12px;font-size:12px;">
-          <label nz-checkbox [(ngModel)]="allChecked" [nzDisabled]="_disabled" (ngModelChange)="updateAllChecked()" [nzIndeterminate]="indeterminate"
-            style="font-weight: bold;">
-            {{_placeholder || '全部'}}
-          </label>
+          <div *ngIf="_isChoose;else templateName">
+            <nz-radio-group [(ngModel)]="radioValue" (ngModelChange)="radioAction()">
+              <label nz-radio nzValue="1">货到付款产品</label>
+              <label nz-radio nzValue="2">非货到付款产品</label>
+            </nz-radio-group>
+          </div>
+          <ng-template #templateName>
+            <label nz-checkbox [(ngModel)]="allChecked" [nzDisabled]="_disabled" (ngModelChange)="updateAllChecked()" [nzIndeterminate]="indeterminate"
+              style="font-weight: bold;">
+              {{_placeholder || '全部'}}
+            </label>
+          </ng-template>
           <button class="dropdown-clearAll" nz-button nzType="default" style="color:#5a8cff;border: 1px solid #5a8cff;float:right;" (click)="clearAll()">清除</button>
         </div>
         <br>

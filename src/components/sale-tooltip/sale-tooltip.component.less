@@ -17,6 +17,10 @@
     border-radius: 4px;
     padding: 12px;
   }
+  &-width{
+    width: 480px;
+    
+  }
 }
 .cinpput-header {
       position: relative;
@@ -32,6 +36,12 @@
  }
 }
 ::ng-deep{
+  .ant-radio-checked .ant-radio-inner{
+    border-color: #5a8cff;
+  }
+  .ant-radio-inner:after{
+    background: #5a8cff;
+  }
   .ant-input:focus, .ant-input:hover{
     border-color: #5a8cff;
   }

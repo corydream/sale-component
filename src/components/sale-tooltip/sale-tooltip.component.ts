@@ -6,7 +6,10 @@ import {
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { OverlayRef, Overlay } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
-
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+export function toBoolean(value: boolean | string): boolean {
+  return coerceBooleanProperty(value);
+}
 const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => SaleTooltipComponent),
@@ -23,23 +26,30 @@ export class SaleTooltipComponent implements ControlValueAccessor, OnInit {
   @ViewChild('cinputInput') cinputInput: ElementRef<any>;
   @ViewChild('cinputCheckbox') cinputCheckbox: TemplateRef<any>;
   @Output() optionsChange = new EventEmitter<any>();
+  @Output() radioSelected = new EventEmitter<any>();
   overlayRef: OverlayRef;
-
 
   public _placeholder = '请选择';
   public total = 0;
   allChecked = false;
   indeterminate = false;
   _disabled = false;
+  _isChoose = false;
   _options = [];
   choose = [];
   modal = false;
   selectedArr = [];
   salewidth = '140px';
-  listArr: any = [];
+  radioValue = '1';
+  listArr = [];
   async = true;
   onChange: (value: string | string[]) => void = () => null;
   onTouched: () => void = () => null;
+
+  @Input()
+  set radio(value: boolean) {
+    this._isChoose = toBoolean(value);
+  }
   @Input()
   set placeholder(value: string) {
     this._placeholder = value;
@@ -169,7 +179,9 @@ export class SaleTooltipComponent implements ControlValueAccessor, OnInit {
       this.updateModel();
     }
   }
-
+  radioAction() {
+    this.radioSelected.emit(this.radioValue);
+  }
 
   writeValue(value: any | any[]): void {
     if (value) {
