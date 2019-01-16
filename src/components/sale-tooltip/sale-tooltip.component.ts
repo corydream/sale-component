@@ -7,9 +7,6 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { OverlayRef, Overlay } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-export function toBoolean(value: boolean | string): boolean {
-  return coerceBooleanProperty(value);
-}
 const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => SaleTooltipComponent),
@@ -48,7 +45,7 @@ export class SaleTooltipComponent implements ControlValueAccessor, OnInit {
 
   @Input()
   set radio(value: boolean) {
-    this._isChoose = toBoolean(value);
+    this._isChoose = this.toBoolean(value);
   }
   @Input()
   set placeholder(value: string) {
@@ -114,6 +111,9 @@ export class SaleTooltipComponent implements ControlValueAccessor, OnInit {
       hasBackdrop: this.modal,
       scrollStrategy: this.modal ? this.overlay.scrollStrategies.block() : null,
     });
+  }
+  toBoolean(value: boolean | string): boolean {
+    return coerceBooleanProperty(value);
   }
   loadData() {
     this._options.map(v => v.label = v.value);
