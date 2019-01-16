@@ -9,6 +9,10 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { OverlayRef, Overlay } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { ChineseToPinyinService } from './chineseToPinyin.service';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+export function toBoolean(value: boolean | string): boolean {
+  return coerceBooleanProperty(value);
+}
 const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => SaleSearchtipComponent),
@@ -31,9 +35,11 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
   public _placeholder = '请选择';
   _disabled = false;
   salewidth = '140px';
+  allow_clear = false;
   _searchOption = [];
   _searchInitOption = [];
   _searchPageOption = [];
+  _searchOriginOption = [];
   searchCondition = null;
   selectedArr = [];
   choose = [];
@@ -41,7 +47,7 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
   pageSize = 50;
   totalNum = 0;
   total = 0;
-  listArr: any = [];
+  listArr = [];
   async = true;
   onChange: (value: string | string[]) => void = () => null;
   onTouched: () => void = () => null;
@@ -57,6 +63,13 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
   @Input()
   set isAsync(value: boolean) {
     this.async = value;
+  }
+  @Input()
+  set allowClear(value: boolean) {
+    console.log(value, toBoolean(value));
+  }
+  get allowClear() {
+    return this.allow_clear;
   }
 
   @Input()
@@ -112,8 +125,9 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
   // 加载数据
   loadListData(): void {
     this._searchInitOption.map(v => v.label = v.value);
-    this._searchInitOption = this.serizaLizeMutiple(this._searchInitOption);
-    this._searchPageOption = [...this._searchInitOption];
+    this._searchPageOption = JSON.parse(JSON.stringify(this._searchInitOption));
+    this._searchPageOption = this.serizaLizeMutiple(this._searchPageOption);
+    this._searchOriginOption = [...this._searchPageOption];
     this.totalNum = this._searchInitOption.length;
     this._searchOption = [...this._searchPageOption.slice(0, 50)];
     const arrs = this._searchInitOption.filter(v => {
@@ -125,14 +139,14 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
     this.total = this.selectedArr.length || 0;
   }
   searchData() {
-    const arr: any = this.choose.map(v => v.key);
-    this._searchInitOption.map(v => {
+    const arr = this.choose.map(v => v.key);
+    this._searchPageOption.map(v => {
       v.checked = false;
       if (arr.includes(v.key)) {
         v.checked = true;
       }
     });
-    this._searchPageOption = [...this._searchInitOption].filter(item => {
+    this._searchPageOption = [...this._searchOriginOption].filter(item => {
       if (item['label'].indexOf(this.searchCondition.toLowerCase()) > -1 ||
         item['spell'].indexOf(this.searchCondition.toLowerCase()) > -1 ||
         item['first'].indexOf(this.searchCondition.toLowerCase()) > -1) {
@@ -170,9 +184,12 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
     if (!this._disabled) {
       this.searchCondition = '';
       this.selectedArr = [];
+      this.choose = [];
       this.total = 0;
       this._searchPageOption.map(v => v.checked = false);
+      this._searchOriginOption.map(v => v.checked = false);
       this.pageIndex = 1;
+      this.searchChange();
     }
   }
 
