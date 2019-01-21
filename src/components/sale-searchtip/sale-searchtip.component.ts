@@ -62,14 +62,7 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
   }
   @Input()
   set isAsync(value: boolean) {
-    this.async = value;
-  }
-  @Input()
-  set allowClear(value: boolean) {
-    console.log(value, toBoolean(value));
-  }
-  get allowClear() {
-    return this.allow_clear;
+    this.async = toBoolean(value);
   }
 
   @Input()
@@ -89,16 +82,16 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
     private _elementRef: ElementRef,
     private viewContainerRef: ViewContainerRef) {
   }
-  @HostListener('document:click', ['$event'])
-  onBodyClick(btn): void {
-    const path = btn.path || (btn.composedPath && btn.composedPath());
-    if (
-      !path.includes(this.overlayRef.overlayElement)
-      && !this._elementRef.nativeElement.contains(btn.target)
-    ) {
-      this.overlayRef.detach();
-    }
-  }
+  // @HostListener('document:click', ['$event'])
+  // onBodyClick(btn): void {
+  //   const path = btn.path || (btn.composedPath && btn.composedPath());
+  //   if (
+  //     !path.includes(this.overlayRef.overlayElement)
+  //     && !this._elementRef.nativeElement.contains(btn.target)
+  //   ) {
+  //     this.overlayRef.detach();
+  //   }
+  // }
   ngOnInit() {
     const strategy = this.overlay
       .position()
@@ -198,7 +191,7 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
   }
 
   updateModel() {
-    const choose = this._searchInitOption.filter(v => v.checked);
+    const choose = this._searchPageOption.filter(v => v.checked);
     this.selectedArr = choose.map(v => v.label);
     this.total = this.selectedArr.length || 0;
     this.onChange(choose);

@@ -54,12 +54,12 @@ export class SaleTooltipComponent implements ControlValueAccessor, OnInit {
 
   @Input()
   set disabled(value: boolean) {
-    this._disabled = value;
+    this._disabled = this.toBoolean(value);
   }
 
   @Input()
   set isAsync(value: boolean) {
-    this.async = value;
+    this.async = this.toBoolean(value);
   }
   @Input()
   set options(value: any) {
@@ -77,16 +77,16 @@ export class SaleTooltipComponent implements ControlValueAccessor, OnInit {
   }
 
 
-  @HostListener('document:click', ['$event'])
-  onBodyClick(btn): void {
-    const path = btn.path || (btn.composedPath && btn.composedPath());
-    if (
-      !path.includes(this.overlayRef.overlayElement)
-      && !this._elementRef.nativeElement.contains(btn.target)
-    ) {
-      this.overlayRef.detach();
-    }
-  }
+  // @HostListener('document:click', ['$event'])
+  // onBodyClick(btn): void {
+  //   const path = btn.path || (btn.composedPath && btn.composedPath());
+  //   if (
+  //     !path.includes(this.overlayRef.overlayElement)
+  //     && !this._elementRef.nativeElement.contains(btn.target)
+  //   ) {
+  //     this.overlayRef.detach();
+  //   }
+  // }
 
   constructor(
     private overlay: Overlay,
