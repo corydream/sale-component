@@ -5,12 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ChineseToPinyinService } from './chineseToPinyin.service';
-
+import { OffClickModule } from '../core/off-click/off-click.module';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    OffClickModule
   ],
   declarations: [
     SaleSearchtipComponent

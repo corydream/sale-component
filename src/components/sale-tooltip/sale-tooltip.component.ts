@@ -77,16 +77,16 @@ export class SaleTooltipComponent implements ControlValueAccessor, OnInit {
   }
 
 
-  // @HostListener('document:click', ['$event'])
-  // onBodyClick(btn): void {
-  //   const path = btn.path || (btn.composedPath && btn.composedPath());
-  //   if (
-  //     !path.includes(this.overlayRef.overlayElement)
-  //     && !this._elementRef.nativeElement.contains(btn.target)
-  //   ) {
-  //     this.overlayRef.detach();
-  //   }
-  // }
+  @HostListener('document:click', ['$event'])
+  onBodyClick(btn): void {
+    const path = btn.path || (btn.composedPath && btn.composedPath());
+    if (
+      !path.includes(this.overlayRef.overlayElement)
+      && !this._elementRef.nativeElement.contains(btn.target)
+    ) {
+      this.overlayRef.detach();
+    }
+  }
 
   constructor(
     private overlay: Overlay,
@@ -186,6 +186,9 @@ export class SaleTooltipComponent implements ControlValueAccessor, OnInit {
   writeValue(value: any | any[]): void {
     if (value) {
       this.listArr = value;
+      if (value && value.length === 0) {
+        this.clearAll();
+      }
       if (!this.async) {
         this.loadData();
       }

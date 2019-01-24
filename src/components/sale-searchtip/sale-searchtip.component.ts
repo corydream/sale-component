@@ -81,6 +81,7 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
     public ctp: ChineseToPinyinService,
     private _elementRef: ElementRef,
     private viewContainerRef: ViewContainerRef) {
+      this.outClick = this.outClick.bind(this);
   }
   // @HostListener('document:click', ['$event'])
   // onBodyClick(btn): void {
@@ -148,10 +149,12 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
     });
     this.totalNum = this._searchPageOption.length;
     this._searchOption = [...this._searchPageOption.slice(0, 50)];
+    console.log(123);
     return {
       total: this.totalNum,
       result: this._searchOption
     };
+
   }
   // 頁碼
   pageIndexChange(index): void {
@@ -179,10 +182,12 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
       this.selectedArr = [];
       this.choose = [];
       this.total = 0;
+      this.listArr = [];
       this._searchPageOption.map(v => v.checked = false);
       this._searchOriginOption.map(v => v.checked = false);
       this.pageIndex = 1;
       this.searchChange();
+      this.updateModel();
     }
   }
 
@@ -192,12 +197,15 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
 
   updateModel() {
     const choose = this._searchPageOption.filter(v => v.checked);
-    this.selectedArr = choose.map(v => v.label);
-    this.total = this.selectedArr.length || 0;
-    this.onChange(choose);
-    this.optionsChange.emit(choose);
     this.choose = choose;
+    this.optionsChange.emit(choose);
+    this.onChangeCallback(choose);
+    this.selectedArr = this.choose.map(v => v.label);
+    this.total = this.selectedArr.length || 0;
+    this.onChange(this.choose);
   }
+
+  onChangeCallback = (_: any) => { };
 
   focus() {
 
@@ -228,6 +236,9 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
   writeValue(value: any | any[]): void {
     if (value) {
       this.listArr = value;
+      if (value && value.length === 0) {
+        this.clearAll();
+      }
       if (!this.async) {
         this.loadListData();
       }
@@ -245,5 +256,13 @@ export class SaleSearchtipComponent implements ControlValueAccessor, OnInit {
   registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
-
+  outClick($event) {
+    const path = $event.path || ($event.composedPath && $event.composedPath());
+    if (
+      !path.includes(this.overlayRef.overlayElement)
+      && !this._elementRef.nativeElement.contains($event.target)
+    ) {
+      this.overlayRef.detach();
+    }
+  }
 }
